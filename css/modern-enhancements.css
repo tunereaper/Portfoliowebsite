@@ -1,0 +1,621 @@
+/* ========================================
+   Modern Enhancements - Elegant & Beautiful
+   ======================================== */
+
+/* Import Modern Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* Override Default Fonts with Modern Stack */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Larger, More Visible Descriptions - All Sections */
+.heading-section p,
+#about-section p,
+.timeline-body p,
+.research-body p {
+  font-size: 1.125rem !important; /* 18px */
+  line-height: 1.8 !important;
+  color: #374151 !important;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Hero Description - Even Larger */
+.hero-description {
+  font-size: 1.25rem !important; /* 20px */
+  line-height: 1.8 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 400;
+}
+
+/* Mobile - Even Larger for Readability */
+@media (max-width: 768px) {
+  .hero-description {
+    font-size: 1.125rem !important; /* 18px on mobile */
+  }
+
+  .heading-section p,
+  #about-section p,
+  .timeline-body p,
+  .research-body p {
+    font-size: 1.0625rem !important; /* 17px on mobile */
+  }
+}
+
+/* Dark Mode Text Colors */
+body.dark-mode .heading-section p,
+body.dark-mode #about-section p,
+body.dark-mode .timeline-body p,
+body.dark-mode .research-body p {
+  color: #d1d5db !important;
+}
+
+/* Ensure All Text is Visible */
+body,
+p,
+span,
+div {
+  color: inherit;
+}
+
+/* Section Headings - Dark and Visible */
+.heading-section h2,
+.timeline-heading h2,
+.research-item h3,
+h1, h2, h3, h4, h5, h6 {
+  color: #111827 !important;
+}
+
+body.dark-mode .heading-section h2,
+body.dark-mode .timeline-heading h2,
+body.dark-mode .research-item h3,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f9fafb !important;
+}
+
+/* About Section - Inline Experience (No Box) */
+.experience-inline {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.experience-inline .experience-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827 !important;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+body.dark-mode .experience-inline .experience-text {
+  color: #f9fafb !important;
+}
+
+.experience-inline .number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experience-inline .btn-download {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffbd39;
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.4);
+  text-decoration: none;
+  border: none;
+  min-width: 150px;
+  justify-content: center;
+}
+
+.experience-inline .btn-download:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 189, 57, 0.6);
+  color: #1a1a1a;
+}
+
+/* Download CV button - Match hero button style */
+#experience-section .btn.btn-primary {
+  padding: 0.75rem 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffbd39;
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.4);
+  text-decoration: none;
+  border: none;
+  min-width: 150px !important;
+  justify-content: center !important;
+}
+
+#experience-section .btn.btn-primary:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 189, 57, 0.6);
+  color: #1a1a1a;
+}
+
+/* Research Section - Full Width */
+.research-list {
+  max-width: 100% !important;
+  margin: 0;
+}
+
+/* Mobile Banner - Fix Image Behind Menu */
+@media (max-width: 991.98px) {
+  .hero-container {
+    padding-top: 5rem;
+  }
+
+  .hero-image-wrapper {
+    margin-top: 2rem;
+  }
+}
+
+/* Enhanced Section Headings */
+.heading-section h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.heading-section h2::after {
+  width: 80px;
+  height: 5px;
+}
+
+@media (max-width: 768px) {
+  .heading-section h2 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Modern Card Styling */
+.timeline-panel,
+.research-item,
+.progress-wrap,
+.project,
+.contact-info .box {
+  border: none !important; /* Remove border from contact info */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode .timeline-panel,
+body.dark-mode .research-item,
+body.dark-mode .progress-wrap,
+body.dark-mode .contact-info .box {
+  border-color: transparent !important; /* No border in dark mode */
+}
+
+/* Enhanced Shadows */
+.timeline-panel:hover,
+.research-item:hover,
+.progress-wrap:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode .timeline-panel:hover,
+body.dark-mode .research-item:hover,
+body.dark-mode .progress-wrap:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Modern Button Styling */
+.btn-primary,
+.hero-btn-primary,
+.btn-view-more {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover,
+.hero-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(255, 189, 57, 0.35);
+}
+
+/* Enhanced Typography Scale */
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Smooth Scrolling with Offset for Fixed Navbar */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Enhanced Link Styles */
+a {
+  transition: all 0.3s ease;
+}
+
+/* Better Spacing */
+section {
+  padding: 6rem 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 0;
+  }
+}
+
+/* Research Item Improvements */
+.research-item h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.research-meta {
+  font-size: 0.9375rem;
+}
+
+.research-body p {
+  font-size: 1.0625rem !important;
+}
+
+/* Timeline Improvements */
+.timeline-heading h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.timeline-heading .position {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.timeline-heading .date {
+  font-size: 0.9375rem;
+}
+
+/* Skills Section */
+.progress-wrap h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Projects */
+.project .text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Contact Section */
+.contact-info .box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.contact-info .box p {
+  font-size: 1rem;
+}
+
+/* Hero Section Typography */
+.hero-name {
+  letter-spacing: -0.03em;
+}
+
+.hero-title-wrapper {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-description {
+  font-size: 1.0625rem !important;
+  line-height: 1.75 !important;
+}
+
+/* Elegant Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ftco-animate {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Better Focus States */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Improved Readability */
+p {
+  max-width: 75ch;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(255, 189, 57, 0.3);
+  color: var(--text-dark);
+}
+
+body.dark-mode ::selection {
+  background: rgba(255, 189, 57, 0.4);
+  color: var(--text-light);
+}
+
+/* Elegant Hover Effects */
+.timeline-panel,
+.research-item,
+.progress-wrap,
+.project {
+  transform-origin: center;
+}
+
+.timeline-panel:hover,
+.research-item:hover,
+.progress-wrap:hover,
+.project:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Better Dark Mode Transitions */
+body,
+section,
+.timeline-panel,
+.research-item,
+.progress-wrap,
+.contact-info .box,
+.heading-section h2,
+.heading-section p {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ========================================
+   CRITICAL COLOR FIXES - Ensure Text Visibility
+   ======================================== */
+
+/* Light Mode - Default Colors */
+body {
+  color: #111827 !important;
+  background: #f9fafb !important;
+}
+
+/* All Paragraphs */
+p {
+  color: #374151 !important;
+}
+
+/* Timeline Colors */
+.timeline-heading .position {
+  color: #667eea !important;
+}
+
+.timeline-heading .date {
+  color: #f59e0b !important;
+}
+
+/* Research Meta */
+.research-meta,
+.research-meta span {
+  color: #6b7280 !important;
+}
+
+/* Skills */
+.progress-wrap h3 {
+  color: #111827 !important;
+}
+
+body.dark-mode .progress-wrap h3 {
+  color: #f9fafb !important;
+}
+
+/* Contact Section */
+.contact-info .box h3 {
+  color: #111827 !important;
+}
+
+.contact-info .box p,
+.contact-info .box a {
+  color: #6b7280 !important;
+}
+
+body.dark-mode .contact-info .box h3 {
+  color: #f9fafb !important;
+}
+
+body.dark-mode .contact-info .box p,
+body.dark-mode .contact-info .box a {
+  color: #d1d5db !important;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  color: #f9fafb !important;
+  background: #1a1a2e !important;
+}
+
+body.dark-mode p {
+  color: #d1d5db !important;
+}
+
+body.dark-mode .research-meta,
+body.dark-mode .research-meta span {
+  color: #9ca3af !important;
+}
+
+body.dark-mode .timeline-heading .position {
+  color: #818cf8 !important;
+}
+
+body.dark-mode .timeline-heading .date {
+  color: #fbbf24 !important;
+}
+
+/* Ensure Navbar Text is Visible */
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+/* Hero Section Text Colors */
+.hero-name,
+.hero-title-prefix,
+.hero-typed {
+  color: #ffffff !important;
+}
+
+.hero-greeting {
+  color: #ffffff !important;
+}
+
+/* Research Item Title Colors */
+.research-item h3 {
+  color: #111827 !important;
+}
+
+body.dark-mode .research-item h3 {
+  color: #f9fafb !important;
+}
+
+.research-item.featured h3 {
+  color: #667eea !important;
+}
+
+body.dark-mode .research-item.featured h3 {
+  color: #818cf8 !important;
+}
+
+/* Footer Colors */
+.ftco-footer {
+  color: #d1d5db !important;
+}
+
+.ftco-footer h2 {
+  color: #f9fafb !important;
+}
+
+.ftco-footer p,
+.ftco-footer a {
+  color: #d1d5db !important;
+}
+
+/* Timeline Text Colors */
+.timeline-body p {
+  color: #4b5563 !important;
+}
+
+body.dark-mode .timeline-body p {
+  color: #d1d5db !important;
+}
+
+/* Strong Tags */
+strong {
+  color: inherit !important;
+  font-weight: 700;
+}
+
+/* Links */
+a {
+  color: #667eea !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #764ba2 !important;
+}
+
+body.dark-mode a {
+  color: #818cf8 !important;
+}
+
+body.dark-mode a:hover {
+  color: #a78bfa !important;
+}

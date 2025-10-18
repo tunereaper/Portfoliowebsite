@@ -1,0 +1,1174 @@
+/* Strong mobile overrides to prevent desktop-only fixed widths and min-width from
+  forcing a zoomed/overflowed layout on phones. Targets <= 991px (Bootstrap lg)
+*/
+@media (max-width: 991px) {
+  /* allow normal responsive flow */
+  html, body {
+    min-width: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Make all .container behave fluid on small screens and undo hard widths */
+  .container,
+  .ftco-navbar-light .container,
+  #ftco-navbar .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* undo any print/other rules that force minimum viewport */
+  body[style], body {
+    min-width: 0 !important;
+  }
+
+  /* prevent scrolled class from pulling navbar up on mobile */
+  .ftco-navbar-light.scrolled,
+  .ftco-navbar-light.scrolled.awake {
+    margin-top: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+  }
+
+  /* keep brand and toggler vertically centered */
+  .navbar-brand, .navbar-toggler {
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  /* ensure toggler and collapsed menu use full width */
+  .navbar-toggler {
+    margin-left: 0.25rem !important;
+  }
+  .navbar-collapse {
+    width: 100% !important;
+  }
+
+  /* ensure logo doesn't overflow */
+  .navbar-logo, .navbar-brand img {
+    max-width: 48px !important;
+    max-height: 48px !important;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+
+/* Make skill boxes tightly stacked on small screens */
+@media (max-width: 768px) {
+  #skills-section .progress-wrap {
+    margin-bottom: 6px !important;
+  }
+  #skills-section .progress-wrap h3 {
+    margin-bottom: 4px !important;
+  }
+}
+/* ========================================
+   Mobile Fixes and Enhancements
+   ======================================== */
+
+/* Fix 1: Home Section - Enable Scrolling on Mobile */
+@media (max-width: 767.98px) {
+  #home-section.hero {
+    position: relative;
+    overflow: visible;
+  }
+
+  .owl-carousel.home-slider {
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    overflow: visible;
+  }
+
+  .owl-carousel.home-slider .slider-item {
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    overflow: visible;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Ensure content doesn't get cut off */
+  body {
+    overflow-x: hidden;
+    overflow-y: auto !important;
+  }
+}
+
+/* Fix 2: Hamburger Menu - Always Visible on Mobile */
+@media (max-width: 991.98px) {
+  .ftco_navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999 !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .navbar-toggler {
+    display: block !important;
+    z-index: 10000 !important;
+    position: relative;
+    border: 1px solid #fff;
+    color: #fff !important;
+    background: transparent;
+  }
+
+  .navbar-toggler .oi {
+    color: #fff !important;
+  }
+
+  /* Make sure navbar is visible on all sections */
+  section {
+    position: relative;
+  }
+
+  /* Targeted fixes for logo, hamburger and spacing */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Logo image sizing and alignment */
+  .navbar-logo {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+
+  /* Reduce navbar padding so it doesn't overflow on narrow viewports */
+  .ftco_navbar {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* Hide the word "Menu" but keep the icon visible - use custom menu.png only */
+  .navbar-toggler {
+    white-space: nowrap;
+    color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.25rem 0.5rem !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Remove any focus/hover states that might add borders */
+  .navbar-toggler:focus,
+  .navbar-toggler:hover,
+  .navbar-toggler:active {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Ensure the Open Iconic glyph (which uses ::before) is visible and sized */
+  .navbar-toggler .oi,
+  .navbar-toggler .oi::before {
+    color: #fff !important;
+    font-size: 1.4rem !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+  }
+
+  /* Ensure Bootstrap's default toggler icon is REPLACED with menu.png */
+  .navbar-toggler-icon {
+    width: 40px !important;
+    height: 40px !important;
+    background-image: url('../images/menu.png') !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  /* COMPLETELY REMOVE hamburger bars - DO NOT draw any pseudo-elements */
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after,
+  .navbar-toggler-icon span {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    margin: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Force the navbar itself to have no transforms/zoom so it doesn't appear scaled */
+  .ftco_navbar {
+    -webkit-transform: none !important;
+    transform: none !important;
+    zoom: 1 !important;
+  }
+
+  .ftco_navbar, .ftco_navbar * {
+    -webkit-transform: none !important;
+    transform: none !important;
+  }
+
+  /* Ensure toggler icon is visible and sized */
+  .navbar-toggler .oi { font-size: 1.4rem !important; line-height: 1 !important; }
+
+  /* Align toggler to the right and keep it clickable */
+  .navbar-toggler {
+    margin-left: auto;
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Strong reset: prevent any parent/utility from scaling the navbar on mobile */
+  #ftco-navbar, .ftco_navbar, .ftco_navbar * {
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    -webkit-transform-origin: 0 0 !important;
+    -ms-transform-origin: 0 0 !important;
+    transform-origin: 0 0 !important;
+    zoom: 1 !important;
+    /* Normalize font size to avoid inherited large scaling */
+    font-size: 1rem !important;
+    line-height: 1 !important;
+  }
+
+  /* Make the navbar container fluid and use flex layout for proper alignment on mobile */
+  .ftco-navbar-light .container,
+  .ftco_navbar .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* Ensure brand/logo doesn't overflow and is vertically centered */
+  .ftco-navbar-light .navbar-brand,
+  .ftco_navbar .navbar-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: .5rem;
+    padding: .35rem 0 !important;
+  }
+
+  /* Resize logo to fit mobile and remove any transforms */
+  .navbar-logo {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  /* Prevent scrolled state from shifting navbar up on mobile (some scripts add this class on load) */
+  .ftco-navbar-light.scrolled {
+    margin-top: 0 !important;
+    position: fixed; /* keep it fixed if desired */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.4rem 0.5rem !important;
+  }
+
+  /* Make collapse take full width under the toggler and remove unexpected scaling */
+  .ftco-navbar-light .navbar-collapse {
+    width: 100% !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+  }
+}
+
+/* Desktop and All Screens - Transparent Navbar with Blur on Scroll */
+.ftco_navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: transparent !important;
+  transition: all 0.3s ease;
+}
+
+.ftco_navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure navbar links are visible on transparent background */
+.ftco_navbar .navbar-nav .nav-link {
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.ftco_navbar.scrolled .navbar-nav .nav-link {
+  text-shadow: none;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.ftco_navbar.scrolled .navbar-brand {
+  text-shadow: none;
+}
+
+/* Fix 3: About Section - Image First, Then Text on Mobile */
+@media (max-width: 767.98px) {
+  .ftco-about .row {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+
+  /* Swap the order so image comes first */
+  .ftco-about .col-md-6:first-child {
+    order: 2;
+  }
+
+  .ftco-about .col-md-6:last-child {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
+  .img-about .img {
+    min-height: 300px !important;
+    height: 300px !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+}
+
+/* Fix 4: Remove Extra Space Between Sections */
+.ftco-section.ftco-no-pb {
+  padding-bottom: 0 !important;
+}
+
+#about-section {
+  padding-bottom: 2em !important;
+  margin-bottom: 0 !important;
+}
+
+#experience-section {
+  padding-top: 3em !important;
+  margin-top: 0 !important;
+}
+
+/* Banner Images - Add image container for desktop and mobile */
+.banner-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.banner-image-container img {
+  max-width: 100%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Desktop view */
+@media (min-width: 992px) {
+  .banner-image-container {
+    padding: 3rem;
+  }
+
+  .banner-image-container img {
+    max-height: 600px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 991.98px) {
+  .banner-image-container {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .banner-image-container img {
+    max-height: 300px;
+    max-width: 90%;
+  }
+
+  /* Remove extra space on mobile */
+  .slider-item .row.d-md-none {
+    margin-top: 0 !important;
+  }
+}
+
+/* Timeline Layout for Experience Section */
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+  padding-bottom: 0;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 50px;
+  width: 2px;
+  background: #ffbd39;
+  left: 50%;
+  margin-left: -1px;
+}
+
+@media (max-width: 767.98px) {
+  .timeline:before {
+    left: 20px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline-item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.timeline-badge {
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  background: #ffbd39;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  z-index: 100;
+  box-shadow: 0 0 0 4px #f5f5f5;
+}
+
+@media (max-width: 767.98px) {
+  .timeline-badge {
+    left: 20px;
+    margin-left: -10px;
+  }
+}
+
+.timeline-panel {
+  position: relative;
+  width: 45%;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(even) .timeline-panel {
+  float: right;
+}
+
+.timeline-item:nth-child(odd) .timeline-panel {
+  float: left;
+}
+
+@media (max-width: 767.98px) {
+  .timeline-panel {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+    float: none !important;
+  }
+}
+
+.timeline-heading h2 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.timeline-heading .date {
+  display: block;
+  font-size: 14px;
+  color: #ffbd39;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.timeline-heading .position {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.timeline-body p {
+  margin-bottom: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure all sections are accessible on mobile */
+@media (max-width: 767.98px) {
+  section {
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+/* Mobile scaling fixes: prevent any global transforms or zooming that break responsiveness */
+@media (max-width: 1024px) {
+  /* Prevent accidental scaling from scripts or legacy CSS */
+  html, body {
+    -webkit-text-size-adjust: 100% !important; /* prevent iOS Safari automatic text size */
+    -ms-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    zoom: 1 !important; /* reset any zoom rules */
+  }
+
+  /* Ensure no top-level element applies a scale transform */
+  body > * {
+    -webkit-transform: none !important;
+    transform: none !important;
+  }
+
+  /* Some vendor CSS use `zoom` on elements like carousels; reset common ones to 1 */
+  .owl-carousel, .owl-stage-outer, .owl-stage, .research-carousel, .home-slider {
+    zoom: 1 !important;
+  }
+}
+
+/* Contact Section - Text Overflow Fixes */
+@media (max-width: 768px) {
+  .contact-info .box p,
+  .contact-info .box a {
+    font-size: 0.85rem !important;
+    word-break: break-all !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .contact-info .box {
+    padding: 1.5rem 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info .box p,
+  .contact-info .box a {
+    font-size: 0.75rem !important;
+  }
+  
+  .contact-info .box h3 {
+    font-size: 1rem !important;
+  }
+}
+
+/* ========================================
+   Mobile Navbar Optimization
+   ======================================== */
+
+@media (max-width: 991px) {
+  /* Increase navbar height for better touch targets and spacing */
+  .ftco_navbar,
+  #ftco-navbar {
+    min-height: 100px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    transition: background 0.3s ease !important;
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Black background when scrolled OR when menu is open */
+  .ftco_navbar.scrolled,
+  #ftco-navbar.scrolled,
+  .ftco-navbar-light.scrolled,
+  .ftco_navbar.menu-open,
+  #ftco-navbar.menu-open,
+  .ftco-navbar-light.menu-open {
+    background: rgba(0, 0, 0, 0.95) !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Extend navbar background to cover any gap */
+  .ftco_navbar.menu-open::after,
+  #ftco-navbar.menu-open::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -5px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 5px !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    z-index: 999 !important;
+    display: block !important;
+  }
+
+  /* Ensure navbar container has full width and proper height with increased spacing */
+  .ftco_navbar .container,
+  #ftco-navbar .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 25px 20px !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 100px !important;
+    border: none !important;
+  }
+
+  /* Remove all borders from navbar and dropdown - AGGRESSIVE OVERRIDE */
+  .ftco_navbar,
+  #ftco-navbar,
+  .ftco_navbar *,
+  #ftco-navbar *,
+  .navbar-collapse,
+  #ftco-nav,
+  .ftco-navbar-light,
+  .navbar-expand-lg {
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Specifically target the bottom edge where border might appear */
+  .ftco_navbar::after,
+  #ftco-navbar::after,
+  .ftco-navbar-light::after,
+  .navbar::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Center the brand text on mobile */
+  .navbar-brand {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    z-index: 1003 !important;
+    color: #ffffff !important;
+  }
+
+  /* Position hamburger menu on the right - COMPLETELY REMOVE BOOTSTRAP ICON */
+  .navbar-toggler {
+    position: relative !important;
+    right: 0 !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border: none !important;
+    background: transparent !important;
+    z-index: 1004 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Remove ALL focus/active/hover states */
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler:hover,
+  .navbar-toggler.collapsed,
+  .navbar-toggler[aria-expanded="true"],
+  .navbar-toggler[aria-expanded="false"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* ONLY show custom menu.png - completely override Bootstrap icon */
+  .navbar-toggler-icon {
+    background-image: url('../images/menu.png') !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    position: relative !important;
+    border: none !important;
+  }
+
+  /* Override Bootstrap's navbar-dark default icon */
+  .navbar-dark .navbar-toggler-icon,
+  .navbar-light .navbar-toggler-icon,
+  .ftco-navbar-light .navbar-toggler-icon {
+    background-image: url('../images/menu.png') !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* FORCE hide all Bootstrap default icons and pseudo-elements */
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after,
+  .navbar-toggler::before,
+  .navbar-toggler::after,
+  .navbar-toggler span::before,
+  .navbar-toggler span::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Completely hide the .sr-only span that creates duplicate icon */
+  .navbar-toggler .sr-only {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide any child spans that might show up */
+  .navbar-toggler span:not(.navbar-toggler-icon) {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Modern Dropdown Menu - Large, covering 75% of screen - FIXED POSITIONING with FADE ANIMATION */
+  .navbar-collapse {
+    position: fixed !important;
+    top: 100px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    padding: 40px 40px !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-top: none !important;
+    z-index: 1000 !important;
+    min-height: 75vh !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    transform: none !important;
+    transform-origin: 0 0 !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.4s ease, visibility 0.4s ease !important;
+  }
+
+  /* Show state - fade in */
+  .navbar-collapse.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Collapsing state - smooth fade out */
+  .navbar-collapse.collapsing {
+    opacity: 0 !important;
+    visibility: visible !important;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s !important;
+    height: auto !important;
+  }
+
+  /* FORCE prevent any transform, animation, or padding changes during collapse */
+  .navbar-collapse.collapsing,
+  .navbar-collapse.show,
+  .navbar-collapse.collapse,
+  .navbar-collapse.show.collapsing,
+  .collapsing.navbar-collapse,
+  #ftco-nav.collapsing,
+  #ftco-nav.show,
+  #ftco-nav.collapse {
+    transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform-origin: 0 0 !important;
+    position: fixed !important;
+    top: 100px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding: 40px 40px !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Modern menu layout with large touch targets and FIXED spacing */
+  .navbar-nav {
+    padding: 20px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  /* Clean menu items - NO BOXES, NO BORDERS, pure text */
+  .navbar-nav .nav-item {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    transition: transform 0.3s ease !important;
+    overflow: visible !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  .navbar-nav .nav-item:hover {
+    background: transparent !important;
+    border: none !important;
+    transform: translateX(8px) !important;
+  }
+
+  /* Large, readable menu links - FIXED padding that never changes */
+  .navbar-nav .nav-link {
+    font-size: 1.5rem !important;
+    padding: 20px 50px 20px 30px !important;
+    color: #ffffff !important;
+    display: block !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    letter-spacing: 0.5px !important;
+    transition: color 0.3s ease !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force padding to stay consistent in all states */
+  .collapsing .navbar-nav .nav-link,
+  .show .navbar-nav .nav-link,
+  .collapse .navbar-nav .nav-link {
+    padding: 20px 50px 20px 30px !important;
+    font-size: 1.5rem !important;
+  }
+
+  .navbar-nav .nav-link span {
+    font-size: 1.5rem !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+  }
+
+  /* Active/hover states for modern menu - golden accent only, no borders */
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link:focus,
+  .navbar-nav .nav-item.active .nav-link {
+    color: #ffbd39 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 20px 50px 20px 30px !important;
+  }
+
+  /* Smooth scroll behavior */
+  .navbar-nav .nav-link:active {
+    opacity: 0.8 !important;
+  }
+
+  /* Ensure collapsed menu is hidden when not active */
+  .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+
+  .navbar-collapse.show {
+    display: block !important;
+  }
+
+  /* Ensure proper navbar background on scroll */
+  .ftco-navbar-light.scrolled .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95) !important;
+    top: 100px !important;
+  }
+
+  /* Keep navbar items visible when scrolled */
+  .ftco-navbar-light.scrolled .navbar-nav .nav-link {
+    color: #ffffff !important;
+  }
+}
+
+/* Extra adjustments for very small screens */
+@media (max-width: 480px) {
+  /* Increase navbar height for small screens too */
+  .ftco_navbar,
+  #ftco-navbar {
+    min-height: 90px !important;
+  }
+
+  .ftco_navbar .container,
+  #ftco-navbar .container {
+    padding: 20px 20px !important;
+    min-height: 90px !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+
+  .navbar-toggler {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  .navbar-toggler-icon {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  /* Adjust for smaller screens - maintain fixed positioning and spacing */
+  .navbar-collapse {
+    padding: 30px 35px !important;
+    position: fixed !important;
+    top: 90px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    max-height: calc(100vh - 90px) !important;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.3rem !important;
+    padding: 18px 40px 18px 25px !important;
+  }
+
+  .navbar-nav .nav-link span {
+    font-size: 1.3rem !important;
+  }
+}
+
+/* Unified dark/light mode styling for mobile menu */
+@media (max-width: 991px) {
+  /* Ensure menu is always black with white text in both modes - FIXED PADDING and FADE ANIMATION */
+  body.dark-mode .navbar-collapse,
+  body:not(.dark-mode) .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95) !important;
+    position: fixed !important;
+    top: 100px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding: 40px 40px !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  /* NO BOXES, NO BORDERS - Pure clean background for menu items */
+  body.dark-mode .navbar-nav .nav-item,
+  body:not(.dark-mode) .navbar-nav .nav-item {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.dark-mode .navbar-nav .nav-link,
+  body:not(.dark-mode) .navbar-nav .nav-link {
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 20px 50px 20px 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force consistent padding in all collapse states */
+  body.dark-mode .collapsing .navbar-nav .nav-link,
+  body:not(.dark-mode) .collapsing .navbar-nav .nav-link,
+  body.dark-mode .show .navbar-nav .nav-link,
+  body:not(.dark-mode) .show .navbar-nav .nav-link,
+  body.dark-mode .collapse .navbar-nav .nav-link,
+  body:not(.dark-mode) .collapse .navbar-nav .nav-link {
+    padding: 20px 50px 20px 30px !important;
+    font-size: 1.5rem !important;
+  }
+
+  body.dark-mode .navbar-nav .nav-link span,
+  body:not(.dark-mode) .navbar-nav .nav-link span {
+    color: #ffffff !important;
+    font-size: 1.5rem !important;
+  }
+
+  /* Hover - golden text only, no background, no borders */
+  body.dark-mode .navbar-nav .nav-link:hover,
+  body.dark-mode .navbar-nav .nav-link:focus,
+  body.dark-mode .navbar-nav .nav-item.active .nav-link,
+  body:not(.dark-mode) .navbar-nav .nav-link:hover,
+  body:not(.dark-mode) .navbar-nav .nav-link:focus,
+  body:not(.dark-mode) .navbar-nav .nav-item.active .nav-link {
+    color: #ffbd39 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 20px 50px 20px 30px !important;
+  }
+
+  body.dark-mode .navbar-nav .nav-item:hover,
+  body:not(.dark-mode) .navbar-nav .nav-item:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure navbar brand is visible in both modes */
+  body.dark-mode .navbar-brand,
+  body:not(.dark-mode) .navbar-brand {
+    color: #ffffff !important;
+  }
+
+  /* Scrolled and menu-open navbar adjustments */
+  body.dark-mode .ftco-navbar-light.scrolled,
+  body:not(.dark-mode) .ftco-navbar-light.scrolled,
+  body.dark-mode .ftco-navbar-light.menu-open,
+  body:not(.dark-mode) .ftco-navbar-light.menu-open {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+
+  /* Force prevent transforms and padding changes on collapsing state */
+  body.dark-mode .navbar-collapse.collapsing,
+  body:not(.dark-mode) .navbar-collapse.collapsing,
+  body.dark-mode .navbar-collapse.show,
+  body:not(.dark-mode) .navbar-collapse.show,
+  body.dark-mode #ftco-nav.collapsing,
+  body:not(.dark-mode) #ftco-nav.collapsing {
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    position: fixed !important;
+    top: 100px !important;
+    padding: 40px 40px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto !important;
+  }
+}
+
+/* ========================================
+   Footer Mobile Spacing Fix
+   ======================================== */
+
+/* Add proper left padding/spacing for footer content on mobile */
+@media (max-width: 767.98px) {
+  .ftco-footer {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  
+  .ftco-footer .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .ftco-footer .ftco-footer-widget {
+    padding-left: 0 !important;
+    margin-bottom: 30px;
+  }
+  
+  .ftco-footer .ftco-heading-2 {
+    padding-left: 0 !important;
+  }
+  
+  .ftco-footer ul,
+  .ftco-footer p {
+    padding-left: 0 !important;
+  }
+  
+  .ftco-footer .block-23 ul {
+    padding-left: 0 !important;
+    list-style: none;
+  }
+}
+

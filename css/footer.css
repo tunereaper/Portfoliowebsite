@@ -1,0 +1,51 @@
+/* Footer Styles */
+.ftco-footer {
+    background: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+    padding: 6rem 0 3rem;
+}
+
+.ftco-footer h2.ftco-heading-2,
+.ftco-footer p,
+.ftco-footer ul.list-unstyled li,
+.ftco-footer ul.list-unstyled li a {
+    color: var(--text-light) !important;
+}
+
+.ftco-footer h2.ftco-heading-2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ftco-footer p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.ftco-footer ul.list-unstyled li a {
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: color 0.3s ease;
+}
+
+.ftco-footer ul.list-unstyled li a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Social Links */
+.ftco-footer-social li a {
+    color: var(--text-light) !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.ftco-footer-social li a:hover {
+    background: var(--accent-color);
+    color: var(--text-dark) !important;
+}

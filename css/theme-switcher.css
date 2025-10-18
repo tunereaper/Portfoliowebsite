@@ -1,0 +1,216 @@
+/* ========================================
+   Light/Dark Mode Theme Switcher
+   ======================================== */
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #033579 0%, #4bb0db 100%);
+  border: none;
+  box-shadow: 0 8px 25px rgba(3, 53, 121, 0.4);
+  cursor: pointer;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 1.5rem;
+  outline: none !important;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(75, 176, 219, 0.6);
+}
+
+.theme-toggle:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.theme-toggle:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(3, 53, 121, 0.4) !important;
+}
+
+/* Hide sun icon by default (light mode) */
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  --bg-light: #1a1a2e;
+  --bg-dark: #0f0f1e;
+  --card-bg: #16213e;
+  --text-dark: #ffffff;
+  --text-gray: #b0b0b0;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
+/* Switch icons in dark mode */
+body.dark-mode .theme-toggle .sun-icon {
+  display: block;
+}
+
+body.dark-mode .theme-toggle .moon-icon {
+  display: none;
+}
+
+body.dark-mode .theme-toggle {
+  background: linear-gradient(135deg, #ffbd39 0%, #ffd700 100%);
+  box-shadow: 0 8px 25px rgba(255, 189, 57, 0.4);
+}
+
+body.dark-mode .theme-toggle:hover {
+  box-shadow: 0 12px 35px rgba(255, 189, 57, 0.6);
+}
+
+body.dark-mode .theme-toggle:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(255, 189, 57, 0.4) !important;
+}
+
+/* Dark Mode - Hero Section */
+body.dark-mode .modern-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* Dark Mode - Sections */
+body.dark-mode .ftco-section {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
+body.dark-mode #about-section,
+body.dark-mode #skills-section,
+body.dark-mode #projects-section {
+  background: #16213e !important;
+}
+
+body.dark-mode #about-section::before {
+  display: none;
+}
+
+/* Dark Mode - Cards and Panels */
+body.dark-mode .timeline-panel,
+body.dark-mode .research-card,
+body.dark-mode .contact-info .box {
+  background: #1a1a2e;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Keep progress-wrap (skills pills) with light colorful backgrounds in dark mode */
+
+/* Dark Mode - Contact Info Links */
+body.dark-mode .contact-info .box p,
+body.dark-mode .contact-info .box a {
+  color: #ffffff !important;
+}
+
+body.dark-mode .contact-info .box a:hover {
+  color: var(--accent-color) !important;
+}
+
+body.dark-mode .research-card {
+  border-left-color: var(--accent-color);
+}
+
+body.dark-mode .timeline-panel:hover,
+body.dark-mode .research-card:hover {
+  background: #0f0f1e;
+}
+
+/* Keep progress-wrap hover states with original colorful backgrounds */
+
+/* Dark Mode - Typography */
+body.dark-mode .heading-section h2,
+body.dark-mode .timeline-heading h2,
+body.dark-mode .research-card h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .heading-section p,
+body.dark-mode .timeline-body p,
+body.dark-mode .research-card p,
+body.dark-mode .research-meta {
+  color: #b0b0b0;
+}
+
+body.dark-mode .heading-section .big {
+  color: rgba(255, 255, 255, 0.03);
+}
+
+/* Dark Mode - Navbar */
+body.dark-mode .ftco_navbar.scrolled {
+  background: rgba(26, 26, 46, 0.95) !important;
+}
+
+/* Dark Mode - Footer */
+body.dark-mode .ftco-footer {
+  background: #0f0f1e;
+}
+
+/* Dark Mode - Projects */
+body.dark-mode .project .overlay {
+  background: linear-gradient(135deg, rgba(3, 53, 121, 0.95) 0%, rgba(75, 176, 219, 0.95) 100%);
+}
+
+/* Dark Mode - Forms and Inputs (if any) */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #16213e;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth transition for theme change */
+body,
+.ftco-section,
+.timeline-panel,
+.research-card,
+.progress-wrap,
+.contact-info .box,
+.heading-section h2,
+.heading-section p {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Mobile positioning */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 65px;
+    height: 65px;
+    bottom: 25px;
+    right: 25px;
+    font-size: 1.6rem;
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  body,
+  .ftco-section,
+  .timeline-panel,
+  .research-card {
+    transition: none;
+  }
+}

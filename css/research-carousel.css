@@ -1,0 +1,601 @@
+/* ========================================
+   Research Section - Horizontal Carousel
+   ======================================== */
+
+#research-section {
+  background: var(--bg-light);
+  /* reduce bottom padding to tighten gap to footer */
+  padding: 5rem 0 3rem 0;
+  overflow: hidden;
+}
+
+#research-section .heading-section {
+  padding-bottom: 2rem !important;
+  margin-bottom: 0 !important;
+}
+
+#research-section .row.justify-content-center {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Research Carousel Container */
+.research-carousel-container {
+  padding: 0 30px;
+  margin: 0 -5px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+/* Research Card Size */
+.research-card {
+  padding: 5px;
+  margin: 0 5px;
+}
+
+/* Research Card Image */
+.research-card-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+.research-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Carousel Container */
+.research-carousel .owl-dots {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Ensure dot buttons themselves have no background, border, or shadow */
+.research-carousel .owl-dots .owl-dot {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+/* Use Owl Carousel default dots - style them with theme colors */
+.research-carousel .owl-dots .owl-dot span {
+  background: rgba(3, 53, 121, 0.3) !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin: 5px 7px !important;
+  display: block !important;
+  border-radius: 30px !important;
+  transition: all 0.3s ease !important;
+}
+
+.research-carousel .owl-dots .owl-dot.active span {
+  background: #033579 !important;
+  width: 28px !important;
+  border-radius: 8px !important;
+}
+
+.research-carousel .owl-dots .owl-dot:hover span {
+  background: rgba(3, 53, 121, 0.6) !important;
+}
+
+/* Navigation Arrows */
+.research-carousel .owl-nav {
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  transform: none;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  padding: 0;
+  gap: 10px;
+  right: 0;
+}
+
+.research-carousel .owl-nav button {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-light) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.research-carousel .owl-nav button:hover {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.research-carousel .owl-prev {
+  position: relative;
+  left: 0;
+}
+
+.research-carousel .owl-next {
+  position: relative;
+  right: 0;
+}
+
+/* Research Card Content */
+.research-card-content {
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 8px 8px;
+}
+
+.research-card-content h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Hover Effects */
+.research-card:hover .research-card-image img {
+    transform: scale(1.05);
+}
+
+/* Mobile optimization */
+@media (max-width: 767px) {
+    .research-carousel-container {
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    .research-card {
+        padding: 5px;
+    }
+    
+    .research-card-image {
+        height: 280px;
+    }
+    
+    .research-card-content h3 {
+        font-size: 14px;
+    }
+    
+    .research-carousel .owl-nav {
+        padding: 0;
+    }
+}
+
+
+.research-carousel.owl-carousel .owl-stage-outer {
+  /* reduce top/bottom padding so dots sit closer to cards */
+  padding: 8px 0 8px;
+}
+.research-card {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  transition: all 0.3s ease;
+  margin: 0; /* rely on owl carousel margin for horizontal spacing */
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.research-card:hover .research-card-image {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image - Separate Frame */
+.research-card-image {
+  width: 100%;
+  /* use aspect-ratio to force portrait (tall) thumbnails so a page first-page fits nicely */
+  aspect-ratio: 3 / 4;
+  height: auto;
+  overflow: hidden;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 0;
+}
+
+.research-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.research-card:hover .research-card-image img {
+  transform: scale(1.05);
+}
+
+/* Fallback icon if no image */
+.research-card-icon {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-gradient);
+}
+
+.research-card-icon i {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Card Title - Below Image with Transparent Background */
+.research-card-content {
+  padding: 0.75rem 0 0 0;
+  background: none !important; /* ensure caption area is transparent */
+  box-shadow: none !important;
+}
+
+.research-card h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  transition: color 0.3s ease;
+  background: none !important; /* ensure no background shows */
+  box-shadow: none !important;
+}
+
+.research-card:hover h3 {
+  color: #033579;
+}
+
+/* Hide all metadata */
+.research-card-meta {
+  display: none;
+}
+
+/* Dark mode text */
+body.dark-mode .research-card h3 {
+  color: #e5e7eb;
+}
+
+body.dark-mode .research-card:hover h3 {
+  color: #4bb0db;
+}
+
+/* Read More Link */
+.research-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #033579;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.research-card-link:hover {
+  color: #4bb0db;
+  gap: 0.75rem;
+}
+
+.research-card-link i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.research-card-link:hover i {
+  transform: translateX(3px);
+}
+
+/* Featured Card Styling */
+.research-card.featured {
+  /* keep same sizing as normal cards; keep overlay badge only */
+  border: none;
+  background: none !important;
+}
+
+/* Remove any container backgrounds or effects */
+.research-card.featured,
+.research-card.featured a,
+.research-card.featured .research-card-content,
+.research-card.featured .research-card-content > * {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.research-card.featured .research-card-content {
+  background: none !important;
+  padding: 0.75rem 0 0 0;
+  box-shadow: none !important;
+}
+
+.research-card.featured h3 {
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  background: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+.research-card.featured:hover h3 {
+  color: #033579;
+}
+
+.research-card.featured::before {
+  /* keep badge but hide default; we'll place inside image */
+  content: '';
+  display: none;
+}
+
+/* Place featured badge inside the image container top-right */
+.research-card.featured .research-card-image {
+  position: relative;
+}
+
+.research-card.featured .research-card-image::after {
+  content: 'Featured';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 189, 57, 0.95);
+  color: #08111a;
+  padding: 0.25rem 0.6rem;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 12;
+}
+
+/* Custom Navigation Arrows - Top Right Corner */
+.research-carousel .owl-nav {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  width: auto;
+  display: flex;
+  gap: 10px;
+  pointer-events: all;
+  margin-top: 0;
+}
+
+.research-carousel .owl-nav button {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50% !important;
+  background: white !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  pointer-events: all;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  outline: none;
+}
+
+.research-carousel .owl-nav button.owl-prev {
+  position: relative;
+  left: auto;
+}
+
+.research-carousel .owl-nav button.owl-next {
+  position: relative;
+  right: auto;
+}
+
+.research-carousel .owl-nav button:hover {
+  background: linear-gradient(135deg, #033579 0%, #4bb0db 100%) !important;
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(3, 53, 121, 0.3);
+  border-color: #033579;
+}
+
+.research-carousel .owl-nav button:hover span {
+  color: white;
+}
+
+.research-carousel .owl-nav button span {
+  font-size: 1.2rem;
+  color: #033579;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+/* Font Awesome icon styling for arrows */
+.research-carousel .owl-nav button i {
+  font-size: 1.2rem;
+  color: #033579;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.research-carousel .owl-nav button:hover i {
+  color: white;
+}
+
+.research-carousel .owl-nav button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  background: #f0f0f0 !important;
+  border-color: #e0e0e0 !important;
+}
+
+.research-carousel .owl-nav button.disabled span {
+  color: #999 !important;
+}
+
+/* (Dots styles replaced earlier near top — intentionally removed duplicate old block) */
+
+/* Dark Mode Styles */
+body.dark-mode .research-card {
+  background: transparent;
+}
+
+body.dark-mode .research-card h3,
+body.dark-mode .research-card.featured h3 {
+  color: #e5e7eb;
+}
+
+body.dark-mode .research-card p {
+  color: #b0b0b0;
+}
+
+body.dark-mode .research-card-link {
+  color: #4bb0db;
+}
+
+/* Dark mode dot styling */
+body.dark-mode .research-carousel .owl-dots .owl-dot {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+body.dark-mode .research-carousel .owl-dots .owl-dot span {
+  background: rgba(75, 176, 219, 0.4) !important;
+}
+
+body.dark-mode .research-carousel .owl-dots .owl-dot.active span {
+  background: #4bb0db !important;
+}
+
+body.dark-mode .research-carousel .owl-dots .owl-dot:hover span {
+  background: rgba(75, 176, 219, 0.7) !important;
+}
+
+body.dark-mode .research-carousel .owl-nav button {
+  background: white !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .research-carousel .owl-nav button span {
+  color: #033579;
+}
+
+body.dark-mode .research-carousel .owl-nav button i {
+  color: #033579;
+}
+
+body.dark-mode .research-carousel .owl-nav button:hover {
+  background: linear-gradient(135deg, #033579 0%, #4bb0db 100%) !important;
+  border-color: #033579;
+}
+
+body.dark-mode .research-carousel .owl-nav button:hover i {
+  color: white;
+}
+
+body.dark-mode .research-carousel .owl-nav button:hover span {
+  color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .research-carousel-container {
+    padding: 60px 50px 0;
+  }
+
+  .research-carousel .owl-nav {
+    top: -55px;
+  }
+}
+
+@media (max-width: 768px) {
+  .research-carousel-container {
+    padding: 30px 12px 0; /* tightened to align with project grid on mobile */
+  }
+
+  .research-carousel .owl-nav {
+    top: -50px;
+    gap: 8px;
+  }
+
+  .research-carousel .owl-nav button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .research-carousel .owl-nav button span {
+    font-size: 1.1rem;
+  }
+
+  /* keep portrait aspect using aspect-ratio; allow image box to scale */
+  .research-card {
+    /* Allow owl carousel to size cards; avoid fixed percentage widths which create extra gaps */
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .research-card-image {
+    aspect-ratio: 3 / 4;
+  }
+
+  .research-card-content {
+    padding: 1rem;
+  }
+
+  .research-card h3,
+  .research-card.featured h3 {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .research-carousel-container {
+    padding: 28px 8px 0; /* slightly tighter on very small screens */
+  }
+
+  .research-carousel .owl-nav {
+    top: -48px;
+    gap: 6px;
+    right: 10px;
+  }
+
+  .research-carousel .owl-nav button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .research-card {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .research-card-image {
+    aspect-ratio: 3 / 4;
+  }
+
+  .research-card h3,
+  .research-card.featured h3 {
+    font-size: 0.8rem;
+  }
+
+  .research-card-content {
+    padding: 0.9rem;
+  }
+}

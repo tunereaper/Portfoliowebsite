@@ -62,6 +62,33 @@
 	};
 	burgerMenu();
 
+	// Toggle navbar background when menu opens/closes
+	var toggleMenuBackground = function() {
+		$('.navbar-toggler').on('click', function() {
+			var navbar = $('.ftco_navbar, #ftco-navbar');
+			
+			// Toggle menu-open class to change navbar background
+			if ($('#ftco-nav').hasClass('show') || $('#ftco-nav').hasClass('collapsing')) {
+				// Menu is closing
+				setTimeout(function() {
+					navbar.removeClass('menu-open');
+				}, 100);
+			} else {
+				// Menu is opening
+				navbar.addClass('menu-open');
+			}
+		});
+
+		// Also remove menu-open when clicking menu items
+		$('#ftco-nav a').on('click', function() {
+			var navbar = $('.ftco_navbar, #ftco-navbar');
+			setTimeout(function() {
+				navbar.removeClass('menu-open');
+			}, 300);
+		});
+	};
+	toggleMenuBackground();
+
 
 	var onePageClick = function() {
 
@@ -70,6 +97,11 @@
 	    event.preventDefault();
 
 	    var href = $.attr(this, 'href');
+
+	    // Collapse the navbar on mobile after clicking a menu item
+	    if ($('#ftco-nav').hasClass('show')) {
+	    	$('#ftco-nav').collapse('hide');
+	    }
 
 	    $('html, body').animate({
 	        scrollTop: $($.attr(this, 'href')).offset().top - 70
@@ -275,3 +307,263 @@
 
 })(jQuery);
 
+// Typewriter Effect for Hero Section
+(function() {
+	const typed = document.getElementById('typed-text');
+	if (!typed) return;
+
+	const texts = [
+		'intelligent products',
+		'scalable systems',
+		'AI solutions',
+		'impactful experiences'
+	];
+
+	let textIndex = 0;
+	let charIndex = 0;
+	let isDeleting = false;
+	let typeSpeed = 100;
+
+	function type() {
+		const currentText = texts[textIndex];
+
+		if (isDeleting) {
+			typed.textContent = currentText.substring(0, charIndex - 1);
+			charIndex--;
+			typeSpeed = 50;
+		} else {
+			typed.textContent = currentText.substring(0, charIndex + 1);
+			charIndex++;
+			typeSpeed = 100;
+		}
+
+		if (!isDeleting && charIndex === currentText.length) {
+			// Pause at end of text
+			typeSpeed = 2000;
+			isDeleting = true;
+		} else if (isDeleting && charIndex === 0) {
+			isDeleting = false;
+			textIndex = (textIndex + 1) % texts.length;
+			typeSpeed = 500;
+		}
+
+		setTimeout(type, typeSpeed);
+	}
+
+	// Start typewriter effect
+	setTimeout(type, 1000);
+})();
+
+// Dark/Light Mode Toggle
+(function() {
+	const themeToggle = document.getElementById('theme-toggle');
+	if (!themeToggle) return;
+
+	// Check for saved theme preference or default to light mode
+	const currentTheme = localStorage.getItem('theme') || 'light';
+
+	// Apply saved theme on page load
+	if (currentTheme === 'dark') {
+		document.body.classList.add('dark-mode');
+	}
+
+	// Toggle theme on button click
+	themeToggle.addEventListener('click', function() {
+		document.body.classList.toggle('dark-mode');
+
+		// Save preference to localStorage
+		const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+		localStorage.setItem('theme', theme);
+	});
+})();
+
+// Research Section - Accordion Functionality
+(function() {
+	const researchItems = document.querySelectorAll('.research-item');
+
+	researchItems.forEach(item => {
+		const header = item.querySelector('.research-header');
+
+		header.addEventListener('click', function() {
+			// Close other open items
+			researchItems.forEach(otherItem => {
+				if (otherItem !== item && otherItem.classList.contains('active')) {
+					otherItem.classList.remove('active');
+				}
+			});
+
+			// Toggle current item
+			item.classList.toggle('active');
+		});
+	});
+})();
+
+// Initialize Research Carousel
+$('.research-carousel').owlCarousel({
+    center: false,
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    stagePadding: 0,
+    responsive: {
+        0: {
+            items: 1.2,
+            center: true,
+            margin: 10,
+            stagePadding: 30
+        },
+        768: {
+            items: 2.5,
+            margin: 15
+        },
+        992: {
+            items: 3.5,
+            margin: 15
+        },
+        1200: {
+            items: 4.5,
+            margin: 15
+        }
+    },
+    navText: [
+        "<i class='fas fa-chevron-left'></i>",
+        "<i class='fas fa-chevron-right'></i>"
+    ]
+});
+
+// Research Section - View More Button
+(function() {
+	const viewMoreBtn = document.getElementById('viewMoreBtn');
+	if (!viewMoreBtn) return;
+
+	const hiddenItems = document.querySelectorAll('.research-item.hidden');
+	let isExpanded = false;
+
+	viewMoreBtn.addEventListener('click', function() {
+		isExpanded = !isExpanded;
+
+		if (isExpanded) {
+			// Show all hidden items
+			hiddenItems.forEach(item => {
+				item.classList.add('show');
+			});
+			viewMoreBtn.querySelector('.view-more-text').textContent = 'View Less';
+			viewMoreBtn.querySelector('i').style.transform = 'rotate(180deg)';
+		} else {
+			// Hide items
+			hiddenItems.forEach(item => {
+				item.classList.remove('show');
+				item.classList.remove('active'); // Close if expanded
+			});
+			viewMoreBtn.querySelector('.view-more-text').textContent = 'View More Publications';
+			viewMoreBtn.querySelector('i').style.transform = 'rotate(0deg)';
+
+			// Scroll back to research section
+			document.getElementById('research-section').scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	});
+})();
+
+// Vanilla Tilt.js Effect for Images
+(function() {
+	// Check if VanillaTilt is loaded
+	if (typeof VanillaTilt !== 'undefined') {
+		VanillaTilt.init(document.querySelectorAll(".tilt"), {
+			max: 5,
+			speed: 400,
+			glare: true,
+			"max-glare": 0.15,
+			scale: 1.01,
+			perspective: 1500,
+		});
+	}
+})();
+
+// Research Carousel Initialization
+(function($) {
+	const $carousel = $('.research-carousel');
+	
+	$carousel.owlCarousel({
+		loop: false,
+		margin: 30,
+		nav: true,
+		navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+		dots: true,
+		dotsEach: false,
+		autoplay: false,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		touchDrag: true,
+		mouseDrag: true,
+		pullDrag: true,
+		freeDrag: false,
+		rewind: false,
+		onInitialized: updateNavigationState,
+		onTranslated: updateNavigationState,
+		onChanged: updateNavigationState,
+		responsive: {
+			0: {
+				items: 1,
+				stagePadding: 0,
+				margin: 8,
+				touchDrag: true,
+				slideBy: 1,
+				dots: true
+			},
+			480: {
+				items: 1,
+				stagePadding: 0,
+				margin: 8,
+				touchDrag: true,
+				slideBy: 1,
+				dots: true
+			},
+			768: {
+				items: 2,
+				stagePadding: 0,
+				margin: 30,
+				slideBy: 1,
+				dots: true
+			},
+			1000: {
+				items: 3,
+				stagePadding: 0,
+				margin: 30,
+				slideBy: 1,
+				dots: true
+			},
+			1200: {
+				items: 3,
+				stagePadding: 0,
+				margin: 30,
+				slideBy: 1,
+				dots: true
+			}
+		}
+	});
+
+	// Function to update navigation button states
+	function updateNavigationState(event) {
+		if (!event.namespace) return;
+
+		const carousel = event.relatedTarget;
+		const element = event.target;
+		const items = event.item.count;
+		const current = event.item.index || 0;
+		const size = carousel.settings.items || 1;
+		const lastVisible = current + size;
+
+		// Disable prev button at start
+		$('.research-carousel .owl-prev').toggleClass('disabled', current === 0);
+
+		// Disable next button when last item is fully visible
+		$('.research-carousel .owl-next').toggleClass('disabled', lastVisible >= items);
+	}
+})(jQuery);

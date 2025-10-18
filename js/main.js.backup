@@ -1,0 +1,543 @@
+ AOS.init({
+ 	duration: 800,
+ 	easing: 'slide'
+ });
+
+(function($) {
+
+	"use strict";
+
+	$(window).stellar({
+    responsive: true,
+    parallaxBackgrounds: true,
+    parallaxElements: true,
+    horizontalScrolling: false,
+    hideDistantElements: false,
+    scrollProperty: 'scroll'
+  });
+
+
+	var fullHeight = function() {
+
+		$('.js-fullheight').css('height', $(window).height());
+		$(window).resize(function(){
+			$('.js-fullheight').css('height', $(window).height());
+		});
+
+	};
+	fullHeight();
+
+	// loader
+	var loader = function() {
+		setTimeout(function() { 
+			if($('#ftco-loader').length > 0) {
+				$('#ftco-loader').removeClass('show');
+			}
+		}, 1);
+	};
+	loader();
+
+	// Scrollax
+   $.Scrollax();
+
+
+
+   // Burger Menu
+	var burgerMenu = function() {
+
+		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
+
+			event.preventDefault();
+
+			if ( $('#ftco-nav').is(':visible') ) {
+				$(this).removeClass('active');
+			} else {
+				$(this).addClass('active');	
+			}
+
+			
+			
+		});
+
+	};
+	burgerMenu();
+
+
+	var onePageClick = function() {
+
+
+		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
+	    event.preventDefault();
+
+	    var href = $.attr(this, 'href');
+
+	    $('html, body').animate({
+	        scrollTop: $($.attr(this, 'href')).offset().top - 70
+	    }, 500, function() {
+	    	// window.location.hash = href;
+	    });
+		});
+
+	};
+
+	onePageClick();
+	
+
+	var carousel = function() {
+		$('.home-slider').owlCarousel({
+	    loop:true,
+	    autoplay: true,
+	    margin:0,
+	    animateOut: 'fadeOut',
+	    animateIn: 'fadeIn',
+	    nav:false,
+	    autoplayHoverPause: false,
+	    items: 1,
+	    navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
+	    responsive:{
+	      0:{
+	        items:1
+	      },
+	      600:{
+	        items:1
+	      },
+	      1000:{
+	        items:1
+	      }
+	    }
+		});
+	};
+	carousel();
+
+	$('nav .dropdown').hover(function(){
+		var $this = $(this);
+		// 	 timer;
+		// clearTimeout(timer);
+		$this.addClass('show');
+		$this.find('> a').attr('aria-expanded', true);
+		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
+		$this.find('.dropdown-menu').addClass('show');
+	}, function(){
+		var $this = $(this);
+			// timer;
+		// timer = setTimeout(function(){
+			$this.removeClass('show');
+			$this.find('> a').attr('aria-expanded', false);
+			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+			$this.find('.dropdown-menu').removeClass('show');
+		// }, 100);
+	});
+
+
+	$('#dropdown04').on('show.bs.dropdown', function () {
+	  console.log('show');
+	});
+
+	// scroll
+	var scrollWindow = function() {
+		$(window).scroll(function(){
+			var $w = $(this),
+					st = $w.scrollTop(),
+					navbar = $('.ftco_navbar'),
+					sd = $('.js-scroll-wrap');
+
+			if (st > 150) {
+				if ( !navbar.hasClass('scrolled') ) {
+					navbar.addClass('scrolled');	
+				}
+			} 
+			if (st < 150) {
+				if ( navbar.hasClass('scrolled') ) {
+					navbar.removeClass('scrolled sleep');
+				}
+			} 
+			if ( st > 350 ) {
+				if ( !navbar.hasClass('awake') ) {
+					navbar.addClass('awake');	
+				}
+				
+				if(sd.length > 0) {
+					sd.addClass('sleep');
+				}
+			}
+			if ( st < 350 ) {
+				if ( navbar.hasClass('awake') ) {
+					navbar.removeClass('awake');
+					navbar.addClass('sleep');
+				}
+				if(sd.length > 0) {
+					sd.removeClass('sleep');
+				}
+			}
+		});
+	};
+	scrollWindow();
+
+	
+
+	var counter = function() {
+		
+		$('#section-counter, .hero-wrap, .ftco-counter, .ftco-about').waypoint( function( direction ) {
+
+			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.number').each(function(){
+					var $this = $(this),
+						num = $this.data('number');
+						console.log(num);
+					$this.animateNumber(
+					  {
+					    number: num,
+					    numberStep: comma_separator_number_step
+					  }, 7000
+					);
+				});
+				
+			}
+
+		} , { offset: '95%' } );
+
+	}
+	counter();
+
+
+	var contentWayPoint = function() {
+		var i = 0;
+		$('.ftco-animate').waypoint( function( direction ) {
+
+			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+				
+				i++;
+
+				$(this.element).addClass('item-animate');
+				setTimeout(function(){
+
+					$('body .ftco-animate.item-animate').each(function(k){
+						var el = $(this);
+						setTimeout( function () {
+							var effect = el.data('animate-effect');
+							if ( effect === 'fadeIn') {
+								el.addClass('fadeIn ftco-animated');
+							} else if ( effect === 'fadeInLeft') {
+								el.addClass('fadeInLeft ftco-animated');
+							} else if ( effect === 'fadeInRight') {
+								el.addClass('fadeInRight ftco-animated');
+							} else {
+								el.addClass('fadeInUp ftco-animated');
+							}
+							el.removeClass('item-animate');
+						},  k * 50, 'easeInOutExpo' );
+					});
+					
+				}, 100);
+				
+			}
+
+		} , { offset: '95%' } );
+	};
+	contentWayPoint();
+
+	// magnific popup
+	$('.image-popup').magnificPopup({
+    type: 'image',
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    fixedContentPos: true,
+    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+     gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    },
+    image: {
+      verticalFit: true
+    },
+    zoom: {
+      enabled: true,
+      duration: 300 // don't foget to change the duration also in CSS
+    }
+  });
+
+  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+    disableOn: 700,
+    type: 'iframe',
+    mainClass: 'mfp-fade',
+    removalDelay: 160,
+    preloader: false,
+
+    fixedContentPos: false
+  });
+
+
+
+
+
+})(jQuery);
+
+// Typewriter Effect for Hero Section
+(function() {
+	const typed = document.getElementById('typed-text');
+	if (!typed) return;
+
+	const texts = [
+		'intelligent products',
+		'scalable systems',
+		'AI solutions',
+		'impactful experiences'
+	];
+
+	let textIndex = 0;
+	let charIndex = 0;
+	let isDeleting = false;
+	let typeSpeed = 100;
+
+	function type() {
+		const currentText = texts[textIndex];
+
+		if (isDeleting) {
+			typed.textContent = currentText.substring(0, charIndex - 1);
+			charIndex--;
+			typeSpeed = 50;
+		} else {
+			typed.textContent = currentText.substring(0, charIndex + 1);
+			charIndex++;
+			typeSpeed = 100;
+		}
+
+		if (!isDeleting && charIndex === currentText.length) {
+			// Pause at end of text
+			typeSpeed = 2000;
+			isDeleting = true;
+		} else if (isDeleting && charIndex === 0) {
+			isDeleting = false;
+			textIndex = (textIndex + 1) % texts.length;
+			typeSpeed = 500;
+		}
+
+		setTimeout(type, typeSpeed);
+	}
+
+	// Start typewriter effect
+	setTimeout(type, 1000);
+})();
+
+// Dark/Light Mode Toggle
+(function() {
+	const themeToggle = document.getElementById('theme-toggle');
+	if (!themeToggle) return;
+
+	// Check for saved theme preference or default to light mode
+	const currentTheme = localStorage.getItem('theme') || 'light';
+
+	// Apply saved theme on page load
+	if (currentTheme === 'dark') {
+		document.body.classList.add('dark-mode');
+	}
+
+	// Toggle theme on button click
+	themeToggle.addEventListener('click', function() {
+		document.body.classList.toggle('dark-mode');
+
+		// Save preference to localStorage
+		const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+		localStorage.setItem('theme', theme);
+	});
+})();
+
+// Research Section - Accordion Functionality
+(function() {
+	const researchItems = document.querySelectorAll('.research-item');
+
+	researchItems.forEach(item => {
+		const header = item.querySelector('.research-header');
+
+		header.addEventListener('click', function() {
+			// Close other open items
+			researchItems.forEach(otherItem => {
+				if (otherItem !== item && otherItem.classList.contains('active')) {
+					otherItem.classList.remove('active');
+				}
+			});
+
+			// Toggle current item
+			item.classList.toggle('active');
+		});
+	});
+})();
+
+// Initialize Research Carousel
+$('.research-carousel').owlCarousel({
+    center: false,
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    stagePadding: 0,
+    responsive: {
+        0: {
+            items: 1.2,
+            center: true,
+            margin: 10,
+            stagePadding: 30
+        },
+        768: {
+            items: 2.5,
+            margin: 15
+        },
+        992: {
+            items: 3.5,
+            margin: 15
+        },
+        1200: {
+            items: 4.5,
+            margin: 15
+        }
+    },
+    navText: [
+        "<i class='icon-arrow-left'></i>",
+        "<i class='icon-arrow-right'></i>"
+    ]
+});
+
+// Research Section - View More Button
+(function() {
+	const viewMoreBtn = document.getElementById('viewMoreBtn');
+	if (!viewMoreBtn) return;
+
+	const hiddenItems = document.querySelectorAll('.research-item.hidden');
+	let isExpanded = false;
+
+	viewMoreBtn.addEventListener('click', function() {
+		isExpanded = !isExpanded;
+
+		if (isExpanded) {
+			// Show all hidden items
+			hiddenItems.forEach(item => {
+				item.classList.add('show');
+			});
+			viewMoreBtn.querySelector('.view-more-text').textContent = 'View Less';
+			viewMoreBtn.querySelector('i').style.transform = 'rotate(180deg)';
+		} else {
+			// Hide items
+			hiddenItems.forEach(item => {
+				item.classList.remove('show');
+				item.classList.remove('active'); // Close if expanded
+			});
+			viewMoreBtn.querySelector('.view-more-text').textContent = 'View More Publications';
+			viewMoreBtn.querySelector('i').style.transform = 'rotate(0deg)';
+
+			// Scroll back to research section
+			document.getElementById('research-section').scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	});
+})();
+
+// Vanilla Tilt.js Effect for Images
+(function() {
+	// Check if VanillaTilt is loaded
+	if (typeof VanillaTilt !== 'undefined') {
+		VanillaTilt.init(document.querySelectorAll(".tilt"), {
+			max: 15,
+			speed: 400,
+			glare: true,
+			"max-glare": 0.3,
+			scale: 1.05,
+			perspective: 1000,
+		});
+	}
+})();
+
+// Research Carousel Initialization
+(function($) {
+	const $carousel = $('.research-carousel');
+	
+	$carousel.owlCarousel({
+		loop: false,
+		margin: 30,
+		nav: true,
+		navText: ['<span>‹</span>', '<span>›</span>'],
+		dots: true,
+		autoplay: false,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		touchDrag: true,
+		mouseDrag: true,
+		pullDrag: true,
+		freeDrag: false,
+		rewind: false,
+		onInitialized: updateNavigationState,
+		onTranslated: updateNavigationState,
+		onChanged: updateNavigationState,
+		responsive: {
+			0: {
+				items: 1,
+				stagePadding: 0,
+				margin: 8,
+				touchDrag: true,
+				slideBy: 1
+			},
+			480: {
+				items: 1,
+				stagePadding: 0,
+				margin: 8,
+				touchDrag: true,
+				slideBy: 1
+			},
+			768: {
+				items: 2,
+				stagePadding: 0,
+				margin: 30,
+				slideBy: 2
+			},
+			1000: {
+				items: 3,
+				stagePadding: 0,
+				margin: 30,
+				slideBy: 1
+			},
+			1200: {
+				items: 3,
+				stagePadding: 0,
+				margin: 30,
+				slideBy: 1
+			}
+		}
+	});
+
+	// Function to update navigation button states
+	function updateNavigationState(event) {
+		if (!event.namespace) return;
+
+		const carousel = event.relatedTarget;
+		const element = event.target;
+		const items = event.item.count;
+		const current = event.item.index || 0;
+		const size = carousel.settings.items || 1;
+		const lastVisible = current + size;
+
+		// Disable prev button at start
+		$('.research-carousel .owl-prev').toggleClass('disabled', current === 0);
+
+		// Disable next button when last item is fully visible
+		$('.research-carousel .owl-next').toggleClass('disabled', lastVisible >= items);
+
+		// Update dots to match current position
+		$('.research-carousel .owl-dots .owl-dot').each(function(index) {
+			$(this).toggleClass('active', index === Math.floor(current / size));
+		});
+	}
+
+	// Handle manual dot clicks
+	$('.research-carousel .owl-dot').on('click', function() {
+		const index = $(this).index();
+		const size = $carousel.data('owl.carousel').settings.items;
+		$carousel.trigger('to.owl.carousel', [index * size, 300]);
+	});
+})(jQuery);

@@ -1,0 +1,231 @@
+/* ========================================
+   Subpage Hero Section Styling
+   ======================================== */
+
+/* Reduce hero section height for subpages */
+.hero-wrap.js-fullheight {
+  height: auto !important;
+  min-height: auto !important;
+  padding: 120px 0 80px 0;
+}
+
+/* Override the fullheight class for subpages */
+.hero-wrap .slider-text.js-fullheight {
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Adjust hero content positioning */
+.hero-wrap .slider-text {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/* Hero title styling */
+.hero-wrap .bread {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Breadcrumbs styling */
+.hero-wrap .breadcrumbs {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-wrap .breadcrumbs a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hero-wrap .breadcrumbs a:hover {
+  color: #ffbd39;
+}
+
+.hero-wrap .breadcrumbs i {
+  font-size: 0.8rem;
+  margin: 0 5px;
+}
+
+/* Enhance overlay for better text readability */
+.hero-wrap .overlay {
+  opacity: 0.6 !important;
+  background: #000000;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero-wrap.js-fullheight {
+    padding: 100px 0 60px 0;
+  }
+  
+  .hero-wrap .bread {
+    font-size: 2rem;
+  }
+  
+  .hero-wrap .breadcrumbs {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wrap.js-fullheight {
+    padding: 80px 0 50px 0;
+  }
+  
+  .hero-wrap .bread {
+    font-size: 1.75rem;
+  }
+  
+  .hero-wrap .slider-text {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Remove the align-items-end that pushes content to bottom */
+.hero-wrap .slider-text.align-items-end {
+  align-items: center !important;
+}
+
+/* ========================================
+   Subpage Content Section Styling
+   ======================================== */
+
+/* Content section headings - Dark text in light mode */
+.ftco-section h2 {
+  color: #1a1a1a !important;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.ftco-section h3:not(#skills-section .progress-wrap h3) {
+  color: #1a1a1a !important;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.ftco-section h4 {
+  color: #1a1a1a !important;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.ftco-section h5 {
+  color: #1a1a1a !important;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraph text - but exclude footer */
+.ftco-section p:not(.ftco-footer p):not(.ftco-footer-widget p) {
+  color: #374151 !important;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Ensure footer text stays white in both modes - standardized white color */
+.ftco-footer p,
+.ftco-footer-widget p,
+.ftco-footer h2,
+.ftco-footer h4,
+.ftco-footer a,
+.ftco-footer span,
+.ftco-footer .ftco-heading-2,
+.ftco-footer-widget h2,
+.ftco-footer-social li a,
+.ftco-footer-social li a span,
+.ftco-footer-social li a i,
+.ftco-footer .block-23 ul li span,
+.ftco-footer .block-23 ul li .text,
+.ftco-footer .block-23 ul li .icon {
+  color: #ffffff !important;
+}
+
+/* Tags/Links in light mode */
+.tag-widget .heading-sidebar {
+  color: #1a1a1a !important;
+  font-weight: 700;
+}
+
+.tagcloud a,
+.tag-cloud-link {
+  color: #1a1a1a !important;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.tagcloud a:hover,
+.tag-cloud-link:hover {
+  background: #033579;
+  color: #ffffff !important;
+  border-color: #033579;
+  transform: translateY(-2px);
+}
+
+/* Dark Mode Styles */
+body.dark-mode .ftco-section h2 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .ftco-section h3:not(#skills-section .progress-wrap h3) {
+  color: #ffffff !important;
+}
+
+body.dark-mode .ftco-section h4 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .ftco-section h5 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .ftco-section p:not(.ftco-footer p):not(.ftco-footer-widget p) {
+  color: #d1d5db !important;
+}
+
+/* Footer text stays white in dark mode - standardized white color */
+body.dark-mode .ftco-footer p,
+body.dark-mode .ftco-footer-widget p,
+body.dark-mode .ftco-footer h2,
+body.dark-mode .ftco-footer h4,
+body.dark-mode .ftco-footer a,
+body.dark-mode .ftco-footer span,
+body.dark-mode .ftco-footer .ftco-heading-2,
+body.dark-mode .ftco-footer-widget h2,
+body.dark-mode .ftco-footer-social li a,
+body.dark-mode .ftco-footer-social li a span,
+body.dark-mode .ftco-footer-social li a i,
+body.dark-mode .ftco-footer .block-23 ul li span,
+body.dark-mode .ftco-footer .block-23 ul li .text,
+body.dark-mode .ftco-footer .block-23 ul li .icon {
+  color: #ffffff !important;
+}
+
+body.dark-mode .tag-widget .heading-sidebar {
+  color: #ffffff !important;
+}
+
+body.dark-mode .tagcloud a,
+body.dark-mode .tag-cloud-link {
+  color: #ffffff !important;
+  background: #16213e;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .tagcloud a:hover,
+body.dark-mode .tag-cloud-link:hover {
+  background: #ffbd39;
+  color: #1a1a1a !important;
+  border-color: #ffbd39;
+}

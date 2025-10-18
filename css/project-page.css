@@ -1,0 +1,228 @@
+/* ========================================
+   Project Page Modern Theme
+   ======================================== */
+
+/* Project Header Section */
+.project-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0;
+    position: relative;
+    background: var(--bg-light) !important;
+    overflow: hidden;
+}
+
+.project-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.project-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark) !important;
+}
+
+/* Force text colors in light mode */
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode h5,
+.light-mode h6,
+.light-mode .heading-sidebar,
+.light-mode .project-hero h1,
+.light-mode .project-hero h2 {
+    color: #000 !important;
+}
+
+.project-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.project-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+
+.meta-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Project Content Section */
+.project-content {
+    padding: 5rem 0;
+}
+
+.content-section {
+    margin-bottom: 4rem;
+}
+
+/* Project Content Text Colors */
+body.light-mode .ftco-section p {
+    color: #4a5568 !important;
+}
+
+body.dark-mode .ftco-section p {
+    color: #e2e8f0 !important;
+}
+
+/* Footer Section Colors - Always Light */
+.ftco-footer {
+    background-color: #1a202c !important;
+}
+
+.ftco-footer h2.ftco-heading-2,
+.ftco-footer p,
+.ftco-footer ul.list-unstyled li a {
+    color: #ffffff !important;
+}
+
+/* Ensure Other Projects section follows theme */
+body.light-mode .heading-sidebar {
+    color: #000000 !important;
+}
+
+body.dark-mode .heading-sidebar {
+    color: #ffffff !important;
+}
+
+/* Content Section Headers */
+body.light-mode .ftco-section h2.mb-3,
+body.light-mode .ftco-section h3.mb-3,
+body.light-mode .ftco-section h4.heading-sidebar {
+    color: #000000 !important;
+}
+
+body.dark-mode .ftco-section h2.mb-3,
+body.dark-mode .ftco-section h3.mb-3,
+body.dark-mode .ftco-section h4.heading-sidebar {
+    color: #ffffff !important;
+}
+
+/* Tag Cloud Styling */
+body.light-mode .tag-cloud-link {
+    color: #000000 !important;
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6;
+}
+
+body.dark-mode .tag-cloud-link {
+    color: #ffffff !important;
+    background: #1f2937 !important;
+    border: 1px solid #374151;
+}
+
+.tag-cloud-link:hover {
+    background: var(--accent-color) !important;
+    color: white !important;
+}
+
+/* Footer Section - Always Light Text on Dark Background */
+.ftco-footer {
+    background: var(--bg-dark) !important;
+}
+
+.ftco-footer h2.ftco-heading-2,
+.ftco-footer p,
+.ftco-footer ul li,
+.ftco-footer ul.list-unstyled li a {
+    color: var(--text-light) !important;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.content-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.feature-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    color: var(--accent-color);
+}
+
+/* Dark Mode Styles */
+body.dark-mode .project-hero {
+    background: var(--bg-dark);
+}
+
+body.dark-mode .project-hero-title {
+    color: var(--text-light);
+}
+
+body.dark-mode .project-hero-subtitle,
+body.dark-mode .content-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .meta-value {
+    color: var(--text-light);
+}
+
+body.dark-mode .section-title {
+    color: var(--text-light);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .project-hero {
+        min-height: 50vh;
+        padding: 4rem 0;
+    }
+
+    .project-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .project-meta {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}

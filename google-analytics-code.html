@@ -1,0 +1,38 @@
+<!-- GOOGLE ANALYTICS SETUP INSTRUCTIONS -->
+
+<!-- 
+  1. Go to https://analytics.google.com/
+  2. Create a new property for your website
+  3. Get your Measurement ID (format: G-XXXXXXXXXX)
+  4. Replace 'G-XXXXXXXXXX' below with your actual Measurement ID
+  5. Copy this entire code block
+  6. Paste it in the <head> section of ALL your HTML pages
+  7. Place it right after the meta tags, before other scripts
+-->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- 
+  WHAT THIS TRACKS:
+  - Page views
+  - User sessions
+  - Traffic sources (Google, social media, direct)
+  - User location
+  - Device type (mobile, desktop, tablet)
+  - Bounce rate
+  - Time on page
+  
+  VIEW YOUR DATA:
+  - Wait 24-48 hours after installation
+  - Go to https://analytics.google.com/
+  - Select your property
+  - View reports
+-->
