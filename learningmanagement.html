@@ -19,6 +19,50 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer">
     <link rel="stylesheet" href="dist/site.min.css">
+    
+    <style>
+      /* Dark mode hero gradient */
+      [data-theme="dark"] .hero-wrap {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+      }
+
+      /* Breadcrumb hover styles with CSS variables */
+      :root {
+        --breadcrumb-default: rgba(255, 255, 255, 0.8);
+        --breadcrumb-hover: #ffbd39;
+      }
+
+      .breadcrumbs a:link,
+      .breadcrumbs a:visited,
+      .breadcrumbs a:hover,
+      .breadcrumbs a:focus,
+      .breadcrumbs a:active {
+        color: var(--breadcrumb-default) !important;
+        transition: all 0.3s ease !important;
+        text-decoration: none !important;
+      }
+
+      .breadcrumbs a:hover,
+      .breadcrumbs a:focus {
+        color: var(--breadcrumb-hover) !important;
+        transform: translateY(-2px);
+      }
+
+      .breadcrumbs a:hover i,
+      .breadcrumbs a:focus i {
+        color: var(--breadcrumb-hover) !important;
+        transform: translateX(3px);
+      }
+
+      .breadcrumbs i {
+        transition: all 0.3s ease !important;
+        color: var(--breadcrumb-default) !important;
+      }
+
+      .breadcrumbs span {
+        color: var(--breadcrumb-default) !important;
+      }
+    </style>
   </head>
   
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -39,14 +83,14 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="index.html #about-section" class="nav-link"><span>About</span></a></li>
-			      <li class="nav-item"><a href="#experience-section" class="nav-link"><span>My Journey</span></a></li>
-			      <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Competencies</span></a></li>
-			      <li class="nav-item"><a href="#research-section" class="nav-link"><span>Research</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="index.html#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+			      <li class="nav-item"><a href="index.html#experience-section" class="nav-link"><span>My Journey</span></a></li>
+			      <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>Competencies</span></a></li>
+			      <li class="nav-item"><a href="index.html#research-section" class="nav-link"><span>Research</span></a></li>
+	          <li class="nav-item"><a href="index.html#projects-section" class="nav-link"><span>Projects</span></a></li>
 			      <!--<li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>-->
-			      <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+			      <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -55,13 +99,37 @@
 	  
 
     <!-- Hero section Starts-->
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-          <div class="col-md-12 ftco-animate pb-5 mb-3 text-center">
-            <h1 class="mb-3 bread">Learning Management System</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fas fa-chevron-right"></i></a></span> <span class="mr-2"><a href="index.html#projects-section">Projects <i class="fas fa-chevron-right"></i></a></span> <span>Learning Management System <i class="fas fa-chevron-right"></i></span></p>
+    <section class="hero-wrap" style="background: linear-gradient(135deg, #033579 0%, #4bb0db 100%); position: relative; overflow: hidden; min-height: auto; padding: 8rem 0 2rem;">
+      <!-- Texture overlay -->
+      <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('images/bg_1.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 0;
+      "></div>
+      
+      <!-- SVG decoration -->
+      <svg class="hero-decoration" style="position: absolute; bottom: -100px; right: -100px; width: 500px; height: 500px; opacity: 0.15; z-index: 0;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffbd39;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:0.8" />
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="100" r="80" fill="url(#grad1)" />
+      </svg>
+      
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+          <div class="col-md-12 text-left" style="padding-bottom: 1rem;">
+            <h1 class="mb-2" style="color: white; font-size: 2.5rem; font-weight: 700;">Learning Management System</h1>
+            <p class="breadcrumbs" style="margin-bottom: 0;"><span class="mr-2"><a href="index.html">Home <i class="fas fa-chevron-right"></i></a></span> <span class="mr-2"><a href="index.html#projects-section">Projects <i class="fas fa-chevron-right"></i></a></span> <span>Learning Management System <i class="fas fa-chevron-right"></i></span></p>
           </div>
         </div>
       </div>
@@ -114,8 +182,7 @@
               <div class="tagcloud">
                 <a href="branchlessbanking.html" class="tag-cloud-link">Branchless Banking</a>
                 <a href="sajilokrishi.html" class="tag-cloud-link">Sajilo Krishi</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
+                <a href="cattlewearable.html" class="tag-cloud-link">Cattle Wearable System</a>
               </div>
             </div> 
 
@@ -134,11 +201,11 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p>Product Manager and Tech Consultant with expertise in SaaS, IoT, and digital transformation. Passionate about building innovative solutions that create real-world impact.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="ftco-animate"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="ftco-animate"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li class="ftco-animate"><a href="https://www.linkedin.com/in/sandeeprimal" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></li>
+                <li class="ftco-animate"><a href="https://www.researchgate.net/profile/Sandeep-Rimal" target="_blank" rel="noopener noreferrer"><i class="fab fa-researchgate"></i></a></li>
+                <li class="ftco-animate"><a href="https://github.com/tunereaper" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
               </ul>
             </div>
           </div>
@@ -147,36 +214,36 @@
             <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Home</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>About</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Services</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Projects</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Contact</a></li>
+                <li><a href="index.html#home-section"><i class="fas fa-arrow-right mr-2"></i>Home</a></li>
+                <li><a href="index.html#about-section"><i class="fas fa-arrow-right mr-2"></i>About</a></li>
+                <li><a href="index.html#experience-section"><i class="fas fa-arrow-right mr-2"></i>My Journey</a></li>
+                <li><a href="index.html#projects-section"><i class="fas fa-arrow-right mr-2"></i>Projects</a></li>
+                <li><a href="index.html#contact-section"><i class="fas fa-arrow-right mr-2"></i>Contact</a></li>
               </ul>
             </div>
           </div>
           
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Services</h2>
+              <h2 class="ftco-heading-2">Focus Areas</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Web Design</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Web Development</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Business Strategy</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Data Analysis</a></li>
-                <li><a href="#"><i class="fas fa-arrow-right mr-2"></i>Graphic Design</a></li>
+                <li><a href="index.html#projects-section"><i class="fas fa-arrow-right mr-2"></i>Product Management</a></li>
+                <li><a href="index.html#projects-section"><i class="fas fa-arrow-right mr-2"></i>SaaS Solutions</a></li>
+                <li><a href="index.html#projects-section"><i class="fas fa-arrow-right mr-2"></i>IoT & Wearables</a></li>
+                <li><a href="index.html#projects-section"><i class="fas fa-arrow-right mr-2"></i>Digital Transformation</a></li>
+                <li><a href="index.html#projects-section"><i class="fas fa-arrow-right mr-2"></i>Tech Consulting</a></li>
               </ul>
             </div>
           </div>
           
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Have Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-                  <li><i class="fas fa-map-marker-alt"></i><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                  <li><a href="#"><i class="fas fa-phone"></i><span class="text">+2 392 3929 210</span></a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i><span class="text">info@yourdomain.com</span></a></li>
+                  <li><i class="fas fa-map-marker-alt"></i><span class="text">Tokyo, Japan</span></li>
+                  <li><a href="tel:+818094933399"><i class="fas fa-phone"></i><span class="text">+81 80 9493 3399</span></a></li>
+                  <li><a href="mailto:sandeeprimal96@gmail.com"><i class="fas fa-envelope"></i><span class="text">sandeeprimal96@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -191,6 +258,9 @@
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fas fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <p class="mt-2" style="font-size: 0.875rem; color: #999;">
+              Icons by <a href="https://www.flaticon.com/authors/freepik" target="_blank" style="color: #999; text-decoration: underline;">Freepik</a> from <a href="https://www.flaticon.com/" target="_blank" style="color: #999; text-decoration: underline;">Flaticon</a>
+            </p>
           </div>
         </div>
 
